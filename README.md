@@ -11,7 +11,7 @@ public class movimiento : MonoBehaviour
     public float velocidad;
     public float salto;
     private Rigidbody2D rb2d;
-    public float Distancia_RayCast = 0.5f;
+    public float Distancia_RayCast = 0.7f;
     public LayerMask suelo;
     public bool tocoElPiso;
     // Start is called before the first frame update
@@ -42,12 +42,20 @@ public class movimiento : MonoBehaviour
         {
             rb2d.AddForce(Vector2.up * salto * Time.deltaTime, ForceMode2D.Impulse);
         }
-
+        if (inputX < -0.1f)
+        {
+            transform.localScale = new Vector3(-1, 1f, 1f);
+        }
+        if (inputX > 0.1f)
+        {
+            transform.localScale = new Vector3(1, 1f, 1f);
+        }
                 
     }
     private void OnDrawGizmoSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector2.down * Distancia_RayCast);
-    }
+
+	}
 }
