@@ -26,6 +26,9 @@ public class alien : MonoBehaviour
 
         rb2d.transform.Translate(movimiento * velocidad * Time.deltaTime);
 
+        
+        
+
         if (Physics2D.Raycast(transform.position, Vector2.down, Distancia_RayCast, suelo))
         {
             tocoElPiso = true;
