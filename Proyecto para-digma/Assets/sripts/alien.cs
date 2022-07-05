@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class alien : MonoBehaviour
 {
@@ -10,12 +11,22 @@ public class alien : MonoBehaviour
     public float Distancia_RayCast = 0.7f;
     public LayerMask suelo;
     public bool tocoElPiso;
+    public static event Action Muerte;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "malo")
+        {
+            Muerte?.Invoke();
+            GameObject.Find("Square").GetComponent<alien>().enabled = false;
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
