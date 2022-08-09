@@ -9,6 +9,8 @@ public class pausa : MonoBehaviour
 
     public GameObject PauseMenuUI;
 
+    public GameObject win;
+
     // Update is called once per frame
     void Update()
     {
@@ -28,8 +30,8 @@ public class pausa : MonoBehaviour
     public void Resume ()
     {
         PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPause = false;
+       Time.timeScale = 1f;
+        GameIsPause = false; 
     }
     void Pause()
     {
@@ -45,5 +47,8 @@ public class pausa : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        GameIsPause = false;
+        win.SetActive(true);
     }
 }

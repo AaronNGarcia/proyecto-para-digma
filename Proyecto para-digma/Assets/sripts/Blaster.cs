@@ -21,4 +21,11 @@ public class Blaster : MonoBehaviour
         rb.velocity = new Vector2(Direccion.x, Direccion.y).normalized * force;
         
    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("suelo") || collision.gameObject.CompareTag("malo"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

@@ -9,6 +9,7 @@ TagManager:
   - bala
   - boss
   - bomba
+  - suelo
   layers:
   - Default
   - TransparentFX
